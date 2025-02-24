@@ -31,3 +31,38 @@ _Webpack is a module bundler that takes multiple files (JS, CSS, images, etc.) a
 - Code Splitting → Optimizes performance by loading only necessary chunks of code.
 - Hot Module Replacement (HMR) → Enables real-time updates in development without refreshing the page.
 - Loaders & Plugins → Supports Babel, CSS preprocessing, image optimization, etc.
+
+**setState in class Component**
+
+- In class components, setState performs a shallow merge of the new state with the existing state.
+
+```
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "John",
+      age: 25
+    };
+  }
+
+  updateAge = () => {
+    this.setState({ age: 26 }); // Only 'age' is updated, 'name' remains unchanged
+  };
+
+  render() {
+    return (
+      <div>
+        <p>Name: {this.state.name}</p>
+        <p>Age: {this.state.age}</p>
+        <button onClick={this.updateAge}>Update Age</button>
+      </div>
+    );
+  }
+}
+```
+
+✅ _Shallow Merge_ Behavior
+
+- Only the age field is updated.
+- The name field remains unchanged.

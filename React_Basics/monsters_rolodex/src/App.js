@@ -3,6 +3,13 @@ import './App.css';
 import { Component } from 'react';
 
 class App extends Component() {
+  constructor() {
+    super();
+    this.state = {
+      name: 'Manish',
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,17 +19,14 @@ class App extends Component() {
             className="App-logo"
             alt="logo"
           />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+          <p>Hi {this.state.name}</p>
+          <button
+            onClick={(e) => {
+              this.setState({ name: 'Andrea' });
+            }}
           >
-            Learn React
-          </a>
+            Change RName
+          </button>
         </header>
       </div>
     );
