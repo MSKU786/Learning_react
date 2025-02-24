@@ -34,7 +34,7 @@ _Webpack is a module bundler that takes multiple files (JS, CSS, images, etc.) a
 
 **setState in class Component**
 
-- In class components, setState performs a shallow merge of the new state with the existing state.
+- In class components, setState performs a shallow merge of the new state with the existing state. In React class components, setState is the primary way to update the component state. It has several important behaviors and characteristics.
 
 ```
 class MyComponent extends React.Component {
@@ -60,6 +60,17 @@ class MyComponent extends React.Component {
     );
   }
 }
+
+## Best practice to write setState
+ updateAge = () => {
+    this.setState((state, props) => {
+      return { age: 26 }
+    }, () => {
+      console.log(this.state);
+    }); // Only 'age' is updated, 'name' remains unchanged
+  };
+
+## Syntax ->   setState(stateUpdatFunction(), callbackFunction())
 ```
 
 ✅ _Shallow Merge_ Behavior
