@@ -90,3 +90,23 @@ SPA stands for Single Page Application. It is a web application or website that 
 - _Fetch API_: Uses asynchronous requests to fetch and update data without reloading the page.
 - _Improved User Experience_: Faster transitions and a smoother, app-like experience.
 - _Uses Browser History API_: URL changes without full-page reloads, making navigation seamless.
+
+## React Life Cycle
+
+1. constructor() - _Initializing the Component_
+
+- This is the first method that runs when a component is created.
+- It is used to initialize state and bind event handlers (if needed).
+- You must call super(props) first before using this.
+
+2. render() - _Displaying the UI_
+
+- This method returns JSX (UI) that React displays on the screen.
+- It re-runs every time the state or props change.
+
+3. componentDidMount() - _Runs After First Render_
+
+- This method runs only once, after the component is displayed on the screen.
+- It is used for fetching data, setting timers, or adding event listeners.
+
+Flow => 1(constructor) -> 2(render) -> 3(componentDidMount) -> 2(rerender)
