@@ -77,3 +77,16 @@ class MyComponent extends React.Component {
 
 - Only the age field is updated.
 - The name field remains unchanged.
+
+<br/>
+
+#### Single Page Application(SPA)
+
+SPA stands for Single Page Application. It is a web application or website that loads a single HTML page and dynamically updates content as the user interacts with it, without requiring a full page reload.
+
+**Key Characteristics of an SPA:**
+
+- _Client-Side Rendering (CSR)_: The application runs mostly on the client side using JavaScript (or frameworks like React, Angular, or Vue.js).
+- _Fetch API_: Uses asynchronous requests to fetch and update data without reloading the page.
+- _Improved User Experience_: Faster transitions and a smoother, app-like experience.
+- _Uses Browser History API_: URL changes without full-page reloads, making navigation seamless.
