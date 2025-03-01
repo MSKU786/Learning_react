@@ -110,3 +110,27 @@ SPA stands for Single Page Application. It is a web application or website that 
 - It is used for fetching data, setting timers, or adding event listeners.
 
 Flow => 1(constructor) -> 2(render) -> 3(componentDidMount) -> 2(rerender)
+
+### Optimization
+
+Instead of defining an inline function inside render(), define it at the class level. This prevents the function from being reinitialized on every re-render, improving performance.
+
+```
+          onChange={(e) => {
+            let searchField = e.target.value.toLocaleLowerCase();
+
+            this.setState(() => {
+              return { searchField };
+            });
+          }}
+
+          #optimized
+          onSearchChange = (e) => {
+            let searchField = e.target.value.toLocaleLowerCase();
+
+            this.setState(() => {
+              return { searchField };
+            });
+          };
+
+```
