@@ -1,3 +1,4 @@
+import './searchBox.css';
 const { Component } = require('react');
 
 class SearchBox extends Component {
@@ -6,7 +7,7 @@ class SearchBox extends Component {
       <input
         className={this.props.className}
         type="search"
-        placeholder={this.props.plaaceholder}
+        placeholder={this.props.placeholder}
         onChange={this.props.onChangeHandler}
       />
     );
