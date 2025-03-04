@@ -10,7 +10,7 @@ class CardList extends Component {
           const { id, name, email } = monster;
           return (
             <div
-              className=""
+              className={`card-container`}
               card-container
             >
               <img

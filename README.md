@@ -140,3 +140,5 @@ Instead of defining an inline function inside render(), define it at the class l
 In class components, this.props is an object that holds the values passed from a parent component to the child component. It allows you to pass data and functions from one component to another.
 
 React always render in 2 cases when setState is called or props are modified.
+
+**Note: Css files are not limited to folder structure it will be bundled and applicable for across the application.**
