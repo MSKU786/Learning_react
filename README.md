@@ -142,3 +142,7 @@ In class components, this.props is an object that holds the values passed from a
 React always render in 2 cases when setState is called or props are modified.
 
 **Note: Css files are not limited to folder structure it will be bundled and applicable for across the application.**
+
+### React Life Cycel
+
+![Diagram](Diagram/react_lifecycle.png)
