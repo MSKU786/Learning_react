@@ -1,5 +1,5 @@
 import './App.css';
-import { Component, useState } from 'react';
+import { useState } from 'react';
 import CardList from './components/card-list/cardList';
 import SearchBox from './components/search-box/searchBox';
 

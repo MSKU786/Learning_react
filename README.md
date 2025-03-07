@@ -160,3 +160,39 @@ React always render in 2 cases when setState is called or props are modified.
 
 - Change external state (modifies variables, manipulates DOM, makes API calls).
 - May return different outputs for the same inputs.
+
+### useState hook
+
+The useState hook is a fundamental hook in React that allows functional components to have state, making them more dynamic and interactive.
+
+```
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+}
+```
+
+**When Does useState Trigger a Re-render?**
+
+State Updates via setState
+
+1. When you call setState(newValue), React schedules a re-render.
+
+- The component re-executes and updates the UI based on the new state. Only If State Actually Changes
+
+2. React compares the previous and new state (Object.is comparison).
+
+- If they are the same (prevState === newState), React does not re-render.
+- Inside an Event Handler or Effect
+
+3. Calling setState inside an event handler, like onClick, schedules a re-render.
+
+- If used inside useEffect, the component re-renders when dependencies change.
