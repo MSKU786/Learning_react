@@ -146,3 +146,17 @@ React always render in 2 cases when setState is called or props are modified.
 ### React Life Cycel
 
 ![Diagram](Diagram/react_lifecycle.png)
+
+# React Functional Component
+
+### Pure vs. Impure Functions in JavaScript
+
+1. Pure Functions
+
+- Always return the same output for the same input.
+- No side effects (does not modify global variables, API calls, or DOM).
+
+2. Impure Functions
+
+- Change external state (modifies variables, manipulates DOM, makes API calls).
+- May return different outputs for the same inputs.
