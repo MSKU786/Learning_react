@@ -165,8 +165,8 @@ React always render in 2 cases when setState is called or props are modified.
 
 The useState hook is a fundamental hook in React that allows functional components to have state, making them more dynamic and interactive.
 
-```
-import { useState } from "react";
+```jsx
+import { useState } from 'react';
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -196,3 +196,51 @@ State Updates via setState
 3. Calling setState inside an event handler, like onClick, schedules a re-render.
 
 - If used inside useEffect, the component re-renders when dependencies change.
+
+### useEffect Hook
+
+The `useEffect` hook allows you to perform side effects in functional components, such as data fetching, subscriptions, or manually changing the DOM. It runs after the component renders.
+
+**Example Usage**
+
+```jsx
+import { useEffect, useState } from 'react';
+
+function ExampleComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log(`Count updated: ${count}`);
+  }, [count]); // Runs when 'count' changes
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+}
+```
+
+**When Does useEffect Run?**
+
+1. After Initial Render
+
+- useEffect runs after the component mounts, executing the callback function.
+
+2. When Dependencies Change
+
+- If you pass a dependency array [dep1, dep2], the effect runs only when any of these dependencies change.
+- If the array is empty [], the effect runs only once after the first render.
+
+3. Cleanup Function (Optional) - If the effect returns a function, React will run this cleanup function before running the effect again or when the component unmounts.
+
+```jsx
+useEffect(() => {
+  const interval = setInterval(() => {
+    console.log('Interval running');
+  }, 1000);
+
+  return () => clearInterval(interval); // Cleanup function
+}, []);
+```
