@@ -244,3 +244,31 @@ useEffect(() => {
   return () => clearInterval(interval); // Cleanup function
 }, []);
 ```
+
+1. **What is the Virtual DOM?**
+   Virtual DOM (VDOM) is a lightweight copy of the real DOM used in React.
+   It does not directly manipulate the browser's DOM; instead, it creates a virtual representation of the UI in memory.
+
+Key Benefits:
+
+- Performance Optimization: Reduces the number of direct DOM updates.
+- Efficient Updates: React updates only the changed parts instead of re-rendering the whole UI.
+- Reconciliation: Uses a diffing algorithm to compare the previous and new virtual DOM, updating only necessary elements.
+
+2. **How Virtual DOM Works in React**
+
+- React creates a Virtual DOM tree for the initial render.
+- When the state changes, a new Virtual DOM tree is created.
+- React compares the new Virtual DOM with the previous one (Diffing).
+- React calculates the minimal set of changes and updates only the affected parts of the real DOM (Reconciliation).
+- The updated elements are patched into the Real DOM, improving efficiency.
+
+3. **Difference Between DOM and Virtual DOM**
+
+| Feature          | DOM                                       | Virtual DOM                                                |
+| ---------------- | ----------------------------------------- | ---------------------------------------------------------- |
+| **Definition**   | Represents the actual HTML document.      | A lightweight copy of the real DOM in memory.              |
+| **Manipulation** | Directly updates the UI.                  | Updates only changed parts via a diffing algorithm.        |
+| **Performance**  | Slower due to frequent updates.           | Faster, as updates are batched and optimized.              |
+| **Efficiency**   | High memory usage and reflows.            | Reduces unnecessary re-renders, improving efficiency.      |
+| **Re-rendering** | Happens every time an element is updated. | Uses a diffing algorithm to update only necessary changes. |
