@@ -9,12 +9,12 @@ import {
 import SignUpForm from '../../components/sign-up-form/sign-up-form.component';
 
 const SignIn = () => {
-  useEffect(async () => {
-    const response = await getRedirectResult(auth);
-    if (response) {
-      const userDocRef = await createUserDocumentFromAuth(response.user);
-    }
-  }, []);
+  // useEffect(async () => {
+  //   const response = await getRedirectResult(auth);
+  //   if (response) {
+  //     const userDocRef = await createUserDocumentFromAuth(response.user);
+  //   }
+  // }, []);
 
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
