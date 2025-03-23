@@ -7,6 +7,7 @@ import {
   createUserDocumentFromAuth,
   signInWithGooglePopup,
 } from '../../utils/firebase/firebase.utils';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const SignInForm = () => {
   const defaultFormField = {
@@ -21,8 +22,20 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
+      const response = await signInWithEmailAndPassword(email, password);
+      console.log(response);
       setFormFields(defaultFormField);
     } catch (err) {
+      switch (err.code) {
+        case 'auth/wrong-password':
+          alert('Wrong password');
+          break;
+        case 'auth/user-not-found':
+          alert('User not found');
+          break;
+        default:
+          console.log(err.message);
+      }
       console.log('Error creating user', err.message);
     }
   };
@@ -68,6 +81,7 @@ const SignInForm = () => {
             Sign In
           </Button>
           <Button
+            type="button"
             buttonType="google"
             onClick={signInWithGoogle}
           >
