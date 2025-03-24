@@ -273,6 +273,41 @@ Key Benefits:
 | **Efficiency**   | High memory usage and reflows.            | Reduces unnecessary re-renders, improving efficiency.      |
 | **Re-rendering** | Happens every time an element is updated. | Uses a diffing algorithm to update only necessary changes. |
 
+# React `useContext` Hook
+
+## Introduction
+
+The `useContext` hook in React is used to access **context values** without passing props manually through every component in the tree. It helps in **global state management** by providing a way to share data between components without prop drilling.
+
+## Why Use `useContext`?
+
+- Avoid **prop drilling** (passing props through multiple components).
+- Share **global state** like authentication, themes, and language settings.
+- Simplifies state management in smaller applications.
+
+## How to Use `useContext`?
+
+### 1. **Creating a Context**
+
+First, create a context using `createContext()`.
+
+````jsx
+import React, { createContext, useContext, useState } from "react";
+
+// Create a Context
+const ThemeContext = createContext();
+function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState("light");
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+```
+
+
 ### FAQ's
 
 1. Why use capital letters to create a new component in React?
@@ -281,12 +316,12 @@ Key Benefits:
 
 ## Reason:
 
-1. **Native HTML elements are lowercase**
+  1. **Native HTML elements are lowercase** 1.1
 
-   - `<div>`, `<span>`, `<button>` are built-in HTML elements.
+    - `<div>`, `<span>`, `<button>` are built-in HTML elements.
 
-2. **Custom components are uppercase**
-   - React treats components that start with a capital letter as custom components and tries to resolve them from the imported modules.
+  2. **Custom components are uppercase** 1.2
+    - React treats components that start with a capital letter as custom components and tries to resolve them from the imported modules.
 
 ## Example:
 
@@ -303,7 +338,7 @@ export default function App() {
     </div>
   );
 }
-```
+````
 
 2.  What is Switching Components?
 
