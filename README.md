@@ -272,3 +272,72 @@ Key Benefits:
 | **Performance**  | Slower due to frequent updates.           | Faster, as updates are batched and optimized.              |
 | **Efficiency**   | High memory usage and reflows.            | Reduces unnecessary re-renders, improving efficiency.      |
 | **Re-rendering** | Happens every time an element is updated. | Uses a diffing algorithm to update only necessary changes. |
+
+### FAQ's
+
+1. Why use capital letters to create a new component in React?
+
+- In React, component names **must** start with a capital letter because React distinguishes between **HTML elements** and **custom components** based on their capitalization.
+
+## Reason:
+
+1. **Native HTML elements are lowercase**
+
+   - `<div>`, `<span>`, `<button>` are built-in HTML elements.
+
+2. **Custom components are uppercase**
+   - React treats components that start with a capital letter as custom components and tries to resolve them from the imported modules.
+
+## Example:
+
+```jsx
+function MyComponent() {
+  return <h1>Hello, World!</h1>;
+}
+
+export default function App() {
+  return (
+    <div>
+      <MyComponent /> {/* Recognized as a custom React component */}
+      <myComponent /> {/* React treats this as an HTML element, which doesn't exist */}
+    </div>
+  );
+}
+```
+
+2.  What is Switching Components?
+
+- Switching components in React refers to **conditionally rendering** different components based on certain conditions, such as user actions, route changes, or application state.
+
+## How to Switch Components?
+
+### 1. **Using Conditional Rendering (`if-else` or Ternary Operator)**
+
+You can switch components based on state or props.
+
+#### Example:
+
+```jsx
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
+  return (
+    <div>
+      {isLoggedIn ? <Dashboard /> : <Login />}
+      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>Toggle</button>
+    </div>
+  );
+}
+```
+
+3. What is React Router?
+
+- **React Router** is a popular **routing library** for React that enables navigation between different views or components in a **single-page application (SPA)** without requiring a full page reload.
+
+## Why Use React Router?
+
+- **Client-side navigation**: Avoids full-page reloads, making navigation faster.
+- **Dynamic routing**: Renders different components based on the URL.
+- **Nested routes**: Allows structuring pages hierarchically.
+- **URL parameter handling**: Supports passing data via the URL.
+- **Programmatic navigation**: Enables navigation via code (e.g., `useNavigate`).
