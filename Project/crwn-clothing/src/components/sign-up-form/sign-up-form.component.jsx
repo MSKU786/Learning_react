@@ -31,7 +31,7 @@ const SignUpForm = () => {
         password
       );
 
-      createUserDocumentFromAuth(user, { displayName });
+      createUserDocumentFromAuth(user, displayName);
       setFormFields(defaultFormField);
     } catch (err) {
       if (err.code === 'auth/email-already-in-use') {

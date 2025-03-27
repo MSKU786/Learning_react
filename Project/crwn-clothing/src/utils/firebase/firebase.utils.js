@@ -36,15 +36,19 @@ export const singInWithGoogleRedirect = () =>
 
 export const db = getFirestore();
 
-export const createUserDocumentFromAuth = async (userAuth) => {
+export const createUserDocumentFromAuth = async (
+  userAuth,
+  displayNameFromForm
+) => {
   const userDocRef = doc(db, 'users', userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
 
   if (!userSnapshot.exists()) {
-    const { displayName, email } = userAuth;
+    let { displayName, email } = userAuth;
     const createdAt = new Date();
 
+    displayName = displayName != null ? displayName : displayNameFromForm;
     try {
       await setDoc(userDocRef, {
         displayName,
