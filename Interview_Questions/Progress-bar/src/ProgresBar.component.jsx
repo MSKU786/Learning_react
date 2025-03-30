@@ -6,7 +6,7 @@ export const ProgresBar = ({ progress }) => {
       <span
         className="filled"
         style={{ width: `${progress}%` }}
-      ></span>
+      >{`${progress}%`}</span>
     </div>
   );
 };
