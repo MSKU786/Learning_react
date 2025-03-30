@@ -5,6 +5,7 @@ import SignIn from './routes/sign-in/sign-in.component';
 import { Shop } from './components/shop/shop.component';
 
 const App = () => {
+  console.log('hey');
   return (
     <Routes>
       <Route
