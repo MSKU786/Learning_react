@@ -5,11 +5,11 @@ export const ProductContext = createContext({
   products: [],
 });
 
-export const ProductsProvider = ({ Children }) => {
+export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState(PRODUCTS);
   const value = { products, setProducts };
 
   return (
-    <ProductContext.Provider value={value}>{Children}</ProductContext.Provider>
+    <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
   );
 };
