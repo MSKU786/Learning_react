@@ -1,0 +1,40 @@
+[
+  {
+    "name": "src",
+    "isFolder": true,
+    "children": [
+      {
+        "name": "components",
+        "isFolder": true,
+        "children": [
+          {
+            "name": "button.component.jsx"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "public",
+    "isFolder": true,
+    "children": [
+      {
+        "name": "components",
+        "isFolder": true,
+        "children": [
+          {
+            "name": "button.component.jsx"
+          }
+        ]
+      },
+      {
+        "name": "index.html",
+        "isFolder": false
+      }
+    ]
+  },
+  {
+    "name": "test.json",
+    "isFolder": false
+  }
+]
