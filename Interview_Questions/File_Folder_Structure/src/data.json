@@ -8,7 +8,9 @@
         "isFolder": true,
         "children": [
           {
-            "name": "button.component.jsx"
+            "name": "button.component.jsx",
+            "isFolder": false,
+            "children": []
           }
         ]
       }
@@ -19,11 +21,13 @@
     "isFolder": true,
     "children": [
       {
-        "name": "components",
+        "name": "src-public",
         "isFolder": true,
         "children": [
           {
-            "name": "button.component.jsx"
+            "name": "button.component.jsx",
+            "isFolder": false,
+            "children": []
           }
         ]
       },
