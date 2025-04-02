@@ -13,6 +13,7 @@
 
 #search-input {
   width: 300px;
+  margin-bottom: 2px;
 }
 
 .autocomplete-results {
@@ -20,7 +21,7 @@
   text-align: left;
   border: 2px solid black;
   max-height: 400px;
-  overflow: scroll;
+  overflow-y: scroll;
   width: 300px;
 }
 

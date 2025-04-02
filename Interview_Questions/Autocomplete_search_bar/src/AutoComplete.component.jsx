@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './styles.css';
 
 export const AutoComplete = () => {
   const [search, setSearch] = useState('');
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+  const timeoutRef = useRef(null);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -21,7 +22,22 @@ export const AutoComplete = () => {
   };
 
   useEffect(() => {
-    fetchRecipes();
+    // Clear previous timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    // Set new timeout for debouncing
+    timeoutRef.current = setTimeout(() => {
+      fetchRecipes();
+    }, 500); // 500ms delay
+
+    // Cleanup function to clear timeout on unmount or when search changes
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, [search]);
 
   return (
