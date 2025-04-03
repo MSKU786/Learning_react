@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { Queue } from "./Queue";
-import "./styles.css";
+import { useEffect, useState } from 'react';
+import { Queue } from './Queue';
+import './styles.css';
 
 export const Checkout = ({ numberOfQueues }) => {
   const [state, setState] = useState(null);
@@ -34,21 +34,19 @@ export const Checkout = ({ numberOfQueues }) => {
         }
       }
 
-      console.log(min, ans, ind, length);
-
       const newQueue = [...queues];
       newQueue[ind] = {
         ...newQueue[ind],
         data: [...newQueue[ind].data, num],
         sum: newQueue[ind].sum + parseInt(num),
-        length: parseInt([ind].length) + 1,
+        length: newQueue[ind].length + 1,
       };
 
       setQueues(newQueue);
     };
 
     fetchQueue();
-    setState("");
+    setState('');
   };
 
   useEffect(() => {
@@ -62,12 +60,21 @@ export const Checkout = ({ numberOfQueues }) => {
   return (
     <div className="counter-container">
       <div>
-        <input type="number" value={state} onChange={handleChange} />
+        <input
+          type="number"
+          value={state}
+          onChange={handleChange}
+        />
         <button onClick={handleClick}> Checkout </button>
       </div>
       <div className="queue-container">
         {queues.map((queue, index) => {
-          return <Queue id={index} data={queue} />;
+          return (
+            <Queue
+              id={index}
+              data={queue}
+            />
+          );
         })}
       </div>
     </div>

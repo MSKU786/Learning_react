@@ -1,36 +1,80 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  padding: 20px;
 }
 
-.autocomplete-container {
+.counter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+}
+
+.input-section {
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
+}
+
+.amount-input {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.checkout-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.checkout-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.checkout-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #dc3545;
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.queue-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
-  padding: 2px;
+  margin-top: 20px;
 }
 
-#search-input {
-  width: 300px;
-  margin-bottom: 2px;
-}
-
-.autocomplete-results {
-  display: block;
-  text-align: left;
-  border: 2px solid black;
-  max-height: 400px;
-  overflow-y: scroll;
-  width: 300px;
-}
-
-.suggestion-result {
-  padding: 2px;
-  cursor: pointer;
-}
-
-.suggestion-result:hover {
-  background-color: lightblue;
-  cursor: pointer;
+.queue {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 15px;
+  min-width: 200px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
