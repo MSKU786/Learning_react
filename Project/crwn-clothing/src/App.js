@@ -3,6 +3,7 @@ import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
 import SignIn from './routes/sign-in/sign-in.component';
 import { Shop } from './components/shop/shop.component';
+import { Checkout } from './routes/checkout/Checkout.component';
 
 const App = () => {
   console.log('hey');
@@ -23,6 +24,10 @@ const App = () => {
         <Route
           path="/sign-in"
           element={<SignIn />}
+        />
+        <Route
+          path="/checkout"
+          element={<Checkout />}
         />
       </Route>
     </Routes>
