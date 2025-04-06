@@ -3,10 +3,9 @@ import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
 import SignIn from './routes/sign-in/sign-in.component';
 import { Shop } from './components/shop/shop.component';
-import { Checkout } from './routes/checkout/Checkout.component';
+import { Checkout } from './routes/checkout/checkout.component';
 
 const App = () => {
-  console.log('hey');
   return (
     <Routes>
       <Route
