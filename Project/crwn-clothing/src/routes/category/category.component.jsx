@@ -5,12 +5,14 @@ import { ProductCard } from '../../components/product-card/product-card.componen
 
 export const Category = () => {
   const { category } = useParams();
-  const { categoriesMap } = useContext(CategoriesContext);
-  const [products, setProducts] = useState([]);
+  console.log('category', category);
+  const { categories } = useContext(CategoriesContext);
+  console.log('categoriesMap', categories);
+  const [products, setProducts] = useState(categories[category]);
 
   useEffect(() => {
-    setProducts(categoriesMap[category]);
-  }, [category, categoriesMap]);
+    setProducts(categories?.[category]);
+  }, [category, categories]);
 
   return (
     <div className="category-container">
