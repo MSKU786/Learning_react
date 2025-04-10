@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CategoriesContext } from '../../contexts/products.context';
 import { ProductCard } from '../../components/product-card/product-card.component';
+import './category.styles.scss';
 
 export const Category = () => {
   const { category } = useParams();
@@ -15,7 +16,7 @@ export const Category = () => {
   }, [category, categories]);
 
   return (
-    <div className="category-container">
+    <div className="c-container">
       {products &&
         products.map((product) => (
           <ProductCard
