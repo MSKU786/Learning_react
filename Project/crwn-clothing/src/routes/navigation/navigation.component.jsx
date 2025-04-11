@@ -10,7 +10,7 @@ import {
   NavigationContainer,
   LogoContainer,
   NavLinksContainer,
-  NavigationContainer,
+  NavLink,
 } from './navigation.styles';
 
 const Navigation = () => {
@@ -39,6 +39,7 @@ const Navigation = () => {
           ) : (
             <NavLink to="/sign-in">SIGN IN</NavLink>
           )}
+          <CartIcon />
           {isCartOpen && <CartDropdown />}
         </NavLinksContainer>
       </NavigationContainer>
