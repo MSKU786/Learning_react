@@ -4,7 +4,7 @@ import {
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
 import { FormInput } from '../form-input/form-input.component';
-import { Button } from '../button/button.component';
+import { Button, BUTTON_TYPE_CLASSES } from '../button/button.component';
 import { SignUpContainer, SignUpTitle } from './sign-up-form.styles';
 
 const SignUpForm = () => {
@@ -88,7 +88,7 @@ const SignUpForm = () => {
 
         <Button
           type="submit"
-          buttonType="inverted"
+          buttonType={BUTTON_TYPE_CLASSES.inverted}
         >
           Sign Up
         </Button>

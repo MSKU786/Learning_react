@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FormInput } from '../form-input/form-input.component';
-import { Button } from '../button/button.component';
+import { Button, BUTTON_TYPE_CLASSES } from '../button/button.component';
 import './sign-in-form.styles.jsx';
 import {
   signInAuthUserWithEmailAndPassword,
@@ -76,14 +76,14 @@ const SignInForm = () => {
         <ButtonContainer>
           <Button
             type="submit"
-            buttonType="inverted"
+            buttonType={BUTTON_TYPE_CLASSES.inverted}
             onClick={handleSubmit}
           >
             Sign In
           </Button>
           <Button
             type="button"
-            buttonType="google"
+            buttonType={BUTTON_TYPE_CLASSES.google}
             onClick={signInWithGoogle}
           >
             Sign-In with Google
