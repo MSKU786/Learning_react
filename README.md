@@ -308,6 +308,49 @@ function ThemeProvider({ children }) {
 ```
 
 
+## React `useReducer`
+useReducer is a React Hook for managing complex state logic inside components.
+
+- It is similar to useState, but more powerful when:
+
+-- The next state depends on the previous state.
+
+-- You have multiple related state variables.
+
+-- You want a predictable way to handle many actions.
+
+```jsx
+import React, { useReducer } from 'react';
+
+// 1. Define the reducer function
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+// 2. Use the useReducer hook inside your component
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+    </div>
+  );
+}
+
+export default Counter;
+
+
+```
 ### FAQ's
 
 1. Why use capital letters to create a new component in React?
