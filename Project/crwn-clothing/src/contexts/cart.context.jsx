@@ -1,4 +1,5 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext, useEffect, useReducer } from 'react';
+import { USER_ACTION_TYPE } from './user.context';
 
 export const CartContext = createContext({
   isCartOpen: false,
@@ -10,6 +11,25 @@ export const CartContext = createContext({
   totalPrice: 0,
 });
 
+const INITIAL_STATE = {
+  isCartOpen: false,
+  cartItems: [],
+  cartCount: 0,
+  totalPrice: 0,
+};
+
+const cartReducer = (state, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case 'ADD_TO_CART': {
+      return {};
+    }
+
+    default:
+      throw new Error(`Unhandled type ${type} in cartReducer`);
+  }
+};
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
@@ -56,6 +76,8 @@ export const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE);
+
   useEffect(() => {
     const newCartCount = cartItems.reduce(
       (total, cartItem) => total + cartItem.quantity,
@@ -71,15 +93,25 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   const addItemToCart = (product) => {
-    setCartItems(addCartItem(cartItems, product));
+    const newCartItems = setCartItems(addCartItem(cartItems, product));
+    updateCartItemReducer(addCartItem);
   };
 
   const updateQuantityInCart = (product, type) => {
-    setCartItems(updateQuantity(cartItems, product, type));
+    const newCartItems = setCartItems(updateQuantity(cartItems, product, type));
+    updateCartItemReducer(newCartItems);
   };
 
   const removeItemInCart = (product) => {
-    setCartItems(cartItems.filter((cartItem) => cartItem.id !== product.id));
+    const newCartItems = setCartItems(
+      cartItems.filter((cartItem) => cartItem.id !== product.id)
+    );
+
+    updateCartItemReducer(newCartItems);
+  };
+
+  const updateCartItemReducer = (newCartItems) => {
+    dispatch({ type: '', payload: newCartItems });
   };
 
   const value = {
