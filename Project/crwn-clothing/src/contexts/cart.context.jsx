@@ -31,7 +31,7 @@ const cartReducer = (state, action) => {
     case 'SET_ISCART_OPEN': {
       return {
         ...state,
-        isCartOpen: !payload,
+        isCartOpen: payload,
       };
     }
 
@@ -122,8 +122,8 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: 'SET_CART_ITEM', payload: updatedCartItems });
   };
 
-  const setIsCartOpen = () => {
-    dispatch({ type: 'SET_ISCART_OPEN', payload: isCartOpen });
+  const setIsCartOpen = (bool) => {
+    dispatch({ type: 'SET_ISCART_OPEN', payload: bool });
   };
 
   const value = {
