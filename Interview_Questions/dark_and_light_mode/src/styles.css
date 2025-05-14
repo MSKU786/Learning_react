@@ -11,6 +11,12 @@
   overflow: hidden;
 }
 
+.header {
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+}
+
 .filled {
   background-color: green;
   color: white;
