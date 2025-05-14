@@ -1,3 +1,13 @@
 export default function Header({ colorState, setColorState }) {
-  return <div></div>;
+  console.log('This is props', colorState, setColorState);
+  return (
+    <div>
+      <button
+        onClick={(e) => setColorState(!colorState)}
+        className={colorState ? 'button-dark' : 'button'}
+      >
+        Toggle
+      </button>
+    </div>
+  );
 }
