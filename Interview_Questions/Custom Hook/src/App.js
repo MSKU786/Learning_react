@@ -11,12 +11,12 @@ export default function App() {
   }
 
   if (error) {
-    return <div>Somethign went wrong {error}</div>;
+    return <div>Somethign went wrong {error.message}</div>;
   }
   return (
     <div className="App">
       <h1>Data </h1>
-      {data}
+      <ul>{data && data.map((user) => <li key={user.id}>{user.name}</li>)}</ul>
     </div>
   );
 }
